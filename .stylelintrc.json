@@ -1,0 +1,18 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-idiomatic-order"],
+  "plugins": ["stylelint-order"],
+  "rules": {
+    "alpha-value-notation": "number",
+    "color-hex-length": "long",
+    "selector-class-pattern": [
+      "^[a-z]([-]?[a-z0-9]+)*(__[a-z0-9]([-]?[a-z0-9]+)?)?(--[a-z0-9]([-]?[a-z0-9]+)*)?$",
+      { "message": "BEM class names should follow the BEM convention" }
+    ],
+    "media-query-no-invalid": null,
+    "declaration-property-value-no-unknown": null,
+    "order/order": [
+      ["custom-properties", "declarations", "at-rules", "rules"],
+      { "unspecified": "bottom" }
+    ]
+  }
+}

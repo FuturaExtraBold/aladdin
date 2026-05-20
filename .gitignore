@@ -1,0 +1,13 @@
+node_modules/
+dist/
+src/assets/images-compressed/
+.DS_Store
+*.local
+.env
+.env.*
+!.env.example
+coverage/
+*.log
+.cache/
+.vscode/
+.claude/settings.local.json

@@ -1,0 +1,68 @@
+:root {
+  --page-background: #ffffff;
+  --header-height: 56px;
+  --header-background: rgb(18 18 18);
+  --ad-width: 970px;
+  --ad-height: 250px;
+  --ad-background: rgb(10 10 10);
+  --big-grey-box-width: 1280px;
+  --big-grey-box-height: 1200px;
+  --big-grey-box-background: rgb(31 31 31);
+
+  /* Brand colors */
+  --color-imdb-yellow: #f5c518;
+  --color-dark: #000000;
+  --color-light: #ffffff;
+  --color-dark-text: #111111;
+
+  /* Transitions */
+  --transition-speed: 0.2s;
+
+  /* Z-index scale */
+  --z-chrome: 100;
+  --z-unit: 1;
+
+  background: var(--page-background);
+  color: var(--color-dark-text);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none;
+  font-weight: 400;
+  line-height: 1.5;
+  text-rendering: optimizelegibility;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--page-background);
+}
+
+.app {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}

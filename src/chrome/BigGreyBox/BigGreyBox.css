@@ -1,0 +1,22 @@
+.big-grey-box {
+  position: relative;
+  z-index: var(--z-chrome);
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.big-grey-box__inner {
+  position: relative;
+  overflow: hidden;
+  width: min(100%, var(--big-grey-box-width));
+  height: var(--big-grey-box-height);
+  background: var(--big-grey-box-background);
+}
+
+.big-grey-box__chrome {
+  display: block;
+  width: 1280px;
+  height: auto;
+  opacity: 0.1;
+}
