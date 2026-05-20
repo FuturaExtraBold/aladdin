@@ -10,7 +10,7 @@
   position: relative;
   overflow: hidden;
   width: min(100%, var(--big-grey-box-width));
-  height: var(--big-grey-box-height);
+  min-height: calc(100vh - var(--header-height) - var(--ad-height));
   background: var(--big-grey-box-background);
 }
 

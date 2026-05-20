@@ -2,6 +2,8 @@ import "./AdStage.css";
 
 import { useEffect, useRef } from "react";
 
+import BgPlasma from "./BgPlasma";
+
 const THETA_RANGE = 45;
 const PHI_MIN = 45;
 const PHI_MAX = 90;
@@ -11,16 +13,11 @@ const CAMERA_TARGET = "0m 0.5m 0m";
 
 function applyGlassMaterial(mv) {
   const materials = mv.model?.materials;
-  if (!materials?.length) {
-    console.warn("[AdStage] no materials found on mv.model", mv.model);
-    return;
-  }
-  console.log(
-    `[AdStage] patching ${materials.length} materials via model-viewer API`,
-  );
+  if (!materials?.length) return;
   for (const mat of materials) {
+    mat.setAlphaMode("BLEND");
     const pbr = mat.pbrMetallicRoughness;
-    pbr.setBaseColorFactor([0, 0, 0, 1]);
+    pbr.setBaseColorFactor([0, 1, 0, 0.45]); // #00ff00 green glass
     pbr.setMetallicFactor(1.0);
     pbr.setRoughnessFactor(0.0);
   }
@@ -58,6 +55,7 @@ export default function AdStage() {
 
   return (
     <div className="ad-stage">
+      <BgPlasma />
       <div className="ad-stage__canvas">
         <div className="ad-stage__model">
           {}

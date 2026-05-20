@@ -4,15 +4,29 @@
   display: flex;
   width: 100%;
   justify-content: center;
-  background: rgb(20 20 20);
+  background: transparent;
+}
+
+.ad-stage__bg {
+  position: absolute;
+  z-index: 0;
+  width: 1920px;
+  height: 800px;
+  mask-image: radial-gradient(
+    ellipse 82% 78% at center,
+    black 20%,
+    transparent 100%
+  );
+  pointer-events: none;
 }
 
 .ad-stage__canvas {
   position: relative;
+  z-index: 1;
   overflow: hidden;
   width: var(--ad-width);
   height: var(--ad-height);
-  background: var(--ad-background);
+  background: transparent;
 }
 
 .ad-stage__model {
@@ -21,6 +35,7 @@
   right: -18%;
   width: 100%;
   height: 170%;
+  filter: drop-shadow(0 0 6px #00ff00) drop-shadow(0 0 24px #00ff0077);
 }
 
 .ad-stage__model model-viewer {
