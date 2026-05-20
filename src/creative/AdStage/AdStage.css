@@ -18,7 +18,17 @@
 .ad-stage__model {
   position: absolute;
   top: 0;
-  right: 0;
-  width: 50%;
+  right: -18%;
+  width: 100%;
+  height: 170%;
+}
+
+.ad-stage__model model-viewer {
+  --progress-bar-color: transparent;
+  --progress-mask: transparent;
+  --mv-background-color: transparent;
+
+  display: block;
+  width: 100%;
   height: 100%;
 }
