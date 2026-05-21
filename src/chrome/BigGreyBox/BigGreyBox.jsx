@@ -13,6 +13,7 @@ export default function BigGreyBox() {
           aria-hidden="true"
           width="1280"
           height="1206"
+          fetchPriority="high"
         />
       </div>
     </section>
