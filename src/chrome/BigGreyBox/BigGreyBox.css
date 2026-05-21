@@ -11,7 +11,9 @@
   overflow: hidden;
   width: min(100%, var(--big-grey-box-width));
   min-height: calc(100vh - var(--header-height) - var(--ad-height));
-  background: var(--big-grey-box-background);
+
+  /* background: var(--big-grey-box-background); */
+  background: #000000;
 }
 
 .big-grey-box__chrome {

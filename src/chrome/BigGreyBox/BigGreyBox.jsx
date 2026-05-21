@@ -1,12 +1,10 @@
 import "./BigGreyBox.css";
 
-import chromeBody from "../../assets/images-compressed/chrome-body.webp";
-
 export default function BigGreyBox() {
   return (
     <section className="big-grey-box">
       <div className="big-grey-box__inner">
-        <img
+        {/* <img
           className="big-grey-box__chrome"
           src={chromeBody}
           alt=""
@@ -14,7 +12,7 @@ export default function BigGreyBox() {
           width="1280"
           height="1206"
           fetchPriority="high"
-        />
+        /> */}
       </div>
     </section>
   );
