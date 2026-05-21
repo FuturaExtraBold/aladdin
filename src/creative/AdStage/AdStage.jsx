@@ -60,8 +60,15 @@ export default function AdStage() {
     <div className="ad-stage">
       <BgPlasma />
       <div className="ad-stage__canvas">
-        <img src={logoSrc} alt="Aladdin" className="ad-stage__logo" />
-        <div className="ad-stage__cta-group">
+        <img
+          src={logoSrc}
+          alt="Aladdin"
+          className="ad-stage__logo"
+          width={975}
+          height={300}
+          fetchPriority="high"
+        />
+        <div className="ad-stage__ctas">
           <button className="ad-stage__cta" style={{ animationDelay: "0.6s" }}>
             Watch Now
           </button>

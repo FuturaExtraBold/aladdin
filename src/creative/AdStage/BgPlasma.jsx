@@ -5,7 +5,7 @@ const VERT = `
   void main() { gl_Position = vec4(a_pos, 0.0, 1.0); }
 `;
 
-// fBm noise plasma in Wall-E's world palette:
+// fBm noise plasma in Aladdin's world palette:
 // deep earth → olive green → rust orange → dusty yellow
 const FRAG = `
   precision mediump float;
@@ -50,7 +50,7 @@ const FRAG = `
     float n1 = fbm(p + vec2(n0, n0) * 1.6 + vec2(t * 0.8, t * 0.3));
     float f  = fbm(p + vec2(n1, n1) * 1.6 - vec2(t * 0.35, t * 0.55));
 
-    // Wall-E poster palette: indigo night → purple → blue → peach accent
+    // Aladdin poster palette: indigo night → purple → blue → peach accent
     vec3 c0 = vec3(0.04, 0.02, 0.10); // deep indigo-black
     vec3 c1 = vec3(0.40, 0.20, 0.75); // rich violet-purple (most dominant)
     vec3 c2 = vec3(0.10, 0.30, 0.80); // poster sky blue (mid)

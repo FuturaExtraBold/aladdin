@@ -25,7 +25,7 @@ export default function BgStatic() {
               <stop offset="100%" stopColor="#000000" stopOpacity="0" />
             </radialGradient>
 
-            {/* Deep purple bloom — offset right toward Wall-E */}
+            {/* Deep purple bloom — offset right toward Aladdin lamp */}
             <radialGradient
               id="bg-teal"
               cx="1250"
