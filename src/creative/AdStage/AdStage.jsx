@@ -2,7 +2,9 @@ import "./AdStage.css";
 
 import { useEffect, useRef } from "react";
 
+import logoSrc from "../../assets/images-compressed/logo.webp";
 import BgPlasma from "./BgPlasma";
+import Sparkle from "./Sparkle";
 
 const THETA_DEFAULT = 0; // handle-right side-profile at rest
 const THETA_MIN = -45; // 45deg towards camera from default
@@ -58,9 +60,20 @@ export default function AdStage() {
     <div className="ad-stage">
       <BgPlasma />
       <div className="ad-stage__canvas">
-        <img src="/logo.png" alt="Aladdin" className="ad-stage__logo" />
+        <img src={logoSrc} alt="Aladdin" className="ad-stage__logo" />
+        <div className="ad-stage__cta-group">
+          <button className="ad-stage__cta" style={{ animationDelay: "0.6s" }}>
+            Watch Now
+          </button>
+          <button className="ad-stage__cta" style={{ animationDelay: "0.75s" }}>
+            Gallery
+          </button>
+          <button className="ad-stage__cta" style={{ animationDelay: "0.9s" }}>
+            Get Tickets
+          </button>
+        </div>
         <div className="ad-stage__model">
-          {}
+          <Sparkle />
           <model-viewer
             ref={modelRef}
             src="/genie.draco.glb"
