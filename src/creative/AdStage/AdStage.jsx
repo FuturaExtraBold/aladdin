@@ -4,22 +4,24 @@ import { useEffect, useRef } from "react";
 
 import BgPlasma from "./BgPlasma";
 
-const THETA_RANGE = 45;
-const PHI_MIN = 45;
-const PHI_MAX = 90;
-const RADIUS = "2m";
-// Target mid-body so head frames nicely; orbit sweeps head through a wide arc
-const CAMERA_TARGET = "0m 0.5m 0m";
+const THETA_DEFAULT = 0; // handle-right side-profile at rest
+const THETA_MIN = -45; // 45deg towards camera from default
+const PHI_CENTER = 90; // equator = level
+const PHI_DELTA = 10; // ±10deg vertical range
+const RADIUS = "1m";
+const CAMERA_TARGET = "0m 0.25m 0m";
 
 function applyGlassMaterial(mv) {
   const materials = mv.model?.materials;
   if (!materials?.length) return;
   for (const mat of materials) {
-    mat.setAlphaMode("BLEND");
+    mat.setAlphaMode("OPAQUE");
     const pbr = mat.pbrMetallicRoughness;
-    pbr.setBaseColorFactor([0, 1, 0, 0.45]); // #00ff00 green glass
+
+    pbr.setBaseColorFactor([0.8, 0.45, 0.1, 1.0]); // brass/copper base
     pbr.setMetallicFactor(1.0);
-    pbr.setRoughnessFactor(0.0);
+    pbr.setRoughnessFactor(0.3);
+    mat.setEmissiveFactor([0.2, 0.08, 0.0]); // warm copper glow
   }
 }
 
@@ -32,10 +34,9 @@ export default function AdStage() {
       const mv = modelRef.current;
       if (!mv) return;
       const xRatio = e.clientX / window.innerWidth;
-      const yRatio = e.clientY / window.innerHeight;
-      // Inverted: cursor right → model turns left, cursor down → tilts up
-      const theta = THETA_RANGE - xRatio * THETA_RANGE * 2;
-      const phi = PHI_MAX - yRatio * (PHI_MAX - PHI_MIN);
+      const yRatio = 1 - e.clientY / window.innerHeight; // inverted: cursor up → tilt up
+      const theta = THETA_DEFAULT - xRatio * (THETA_DEFAULT - THETA_MIN); // 180→135
+      const phi = PHI_CENTER + (yRatio - 0.5) * PHI_DELTA * 2; // 80–100deg
       mv.setAttribute("camera-orbit", `${theta}deg ${phi}deg ${RADIUS}`);
     };
 
@@ -57,13 +58,14 @@ export default function AdStage() {
     <div className="ad-stage">
       <BgPlasma />
       <div className="ad-stage__canvas">
+        <img src="/logo.png" alt="Aladdin" className="ad-stage__logo" />
         <div className="ad-stage__model">
           {}
           <model-viewer
             ref={modelRef}
-            src="/walle.draco.glb"
-            alt="Wall-E 3D model"
-            camera-orbit={`0deg 90deg ${RADIUS}`}
+            src="/genie.draco.glb"
+            alt="Aladdin lamp 3D model"
+            camera-orbit={`${THETA_DEFAULT}deg ${PHI_CENTER}deg ${RADIUS}`}
             camera-target={CAMERA_TARGET}
             min-camera-orbit="auto auto auto"
             max-camera-orbit="auto auto auto"
